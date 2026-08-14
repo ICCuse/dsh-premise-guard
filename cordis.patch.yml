@@ -1,0 +1,4 @@
+# dsh-premise-guard bundle patch: one insert over the profile root.
+- insert:
+    - id: dsh-premise-guard
+      name: 'dsh-premise-guard'

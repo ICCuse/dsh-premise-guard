@@ -1,0 +1,59 @@
+{
+    "peerDependencies":  {
+                             "@deepseek-ai/cordis":  "^4.0.1",
+                             "@deepseek-ai/schemastery":  "^3.18.1"
+                         },
+    "version":  "0.1.0",
+    "license":  "MIT",
+    "files":  [
+                  "lib/index.js",
+                  "lib/invariant.js",
+                  "lib/types/**/*.d.ts",
+                  "src/**/*.ts"
+              ],
+    "types":  "lib/types/index.d.ts",
+    "name":  "dsh-premise-guard",
+    "type":  "module",
+    "exports":  {
+                    "./package.json":  "./package.json",
+                    "./invariant":  {
+                                        "types":  "./lib/types/invariant.d.ts",
+                                        "default":  "./lib/invariant.js"
+                                    },
+                    "./cordis.patch.yml":  "./cordis.patch.yml",
+                    "./src/*":  "./src/*",
+                    ".":  {
+                              "types":  "./lib/types/index.d.ts",
+                              "default":  "./lib/index.js"
+                          }
+                },
+    "description":  "Post-compaction premise-drift guard plugin for DeepSeek Harness: after a compaction summary drops a critical literal anchor (path, value, error code) it injects a one-shot notice telling the model what it may have lost and how to recover it from the log",
+    "dsh":  {
+                "bundle":  {
+                               "patch":  "./cordis.patch.yml"
+                           }
+            },
+    "keywords":  [
+                     "dsh",
+                     "dsh-plugin",
+                     "deepseek-harness"
+                 ],
+    "scripts":  {
+                    "test":  "vitest run",
+                    "typecheck":  "tsc --noEmit"
+                },
+    "devDependencies":  {
+                            "vitest":  "^4.0.0",
+                            "@deepseek-ai/schemastery":  "^3.18.1",
+                            "@deepseek-ai/dsh-agent-loop":  "^0.0.1-rc.1",
+                            "@deepseek-ai/dsh-agent":  "^0.0.1-rc.1",
+                            "@deepseek-ai/dsh-llm":  "^0.0.1-rc.1",
+                            "@deepseek-ai/dsh-tools":  "^0.0.1-rc.1",
+                            "@deepseek-ai/cordis":  "^4.0.1",
+                            "@deepseek-ai/dsh-agent-loop-testkit":  "^0.0.1-rc.1",
+                            "typescript":  "^5.6.0",
+                            "@deepseek-ai/dsh-compaction":  "^0.0.1-rc.1",
+                            "@deepseek-ai/dsh-session":  "^0.0.1-rc.1"
+                        },
+    "main":  "lib/index.js"
+}
